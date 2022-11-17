@@ -1,0 +1,9 @@
+# My first heading
+
+<!-- \Cref{theoriginallabel} for tables, sections, tables and writes out e.g. "Table 1" - note capital "C" in \Cref-->
+
+This is my first section.
+
+# Conclusion
+
+This is my second section.
