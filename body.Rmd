@@ -2,8 +2,11 @@
 
 <!-- \Cref{theoriginallabel} for tables, sections, tables and writes out e.g. "Table 1" - note capital "C" in \Cref-->
 
+\Cref{sec:conclusion}
+
+
 This is my first section.
 
-# Conclusion
+# Conclusion \label{sec:conclusion}
 
 This is my second section.
