@@ -1,11 +1,6 @@
 # My first heading
 
-<!-- \Cref{theoriginallabel} for tables, sections, tables and writes out e.g. "Table 1" - note capital "C" in \Cref-->
-
-\Cref{sec:conclusion}
-
-
-This is my first section.
+This is my first section. You can refer to the label of another section, table, figure or equation using \verb|\Cref{}|. For example, here I refer to the label of the conclusion in \Cref{sec:conclusion}.
 
 # Conclusion \label{sec:conclusion}
 

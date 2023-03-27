@@ -1,60 +1,83 @@
 ---
+##### YAML #####
 output: 
   pdf_document:
-    citation_package: natbib
-    template: ustemplate2.tex
-    toc: true
-    toc_depth: 3
+    citation_package: natbib # citation package used to read and manipulate references and bibliography
+    template: ustemplate.tex
+    toc: true # table of contents true or false
+    toc_depth: 3 # how many levels of headings in the table of contents
     number_sections: true
     keep_tex: false
     fig_caption: true
-bibliography: mybib.bib
+
+bibliography: mybib.bib # name of the .bib file in the root directory
+
+# Document class and basic formatting
 documentclass: memoir
 lang: afrikaans, english
 fontsize: 12pt
 papersize: letter
 classoption: oneside, openany
 margin-ratio: goldenblock
+
+# Metadata
 title: "This is the title of my thesis"
 titel: "Hierdie is die titel van my tesis"
-author: Wihan Marais
-author-short: W.\ Marais
+
+# "short" variables appear in abstracts
+author: Johnny Bravo 
+author-short: J.\ Bravo
+
 degree-short: MCom (Economics)
 degree: Master in Economics
+
 graad-short: MCom (Ekonomie)
 graad: Magister in Ekonomie
+
 address: yes # comment out to remove address in abstract
+
 faculty: Faculty of Economic and Management Sciences
 fakulteit: Fakulteit Ekonomiese en Bestuurswetenskappe
-supervisor: Prof.\ W.\ H. Boshoff
+
+supervisor: Prof.\ M.\ Supervisor
+# cosupervisor: Mr.\ C.\ Supervisor # Uncomment to add cosupervisor to cover page
+
 year: 2023
-month: 4
+month: 12
+
 abstract: abstract.Rmd
 acknowledgements: acknowledgements.Rmd
-lot: true
-lof: true
-# nomenclature: nomenclature.Rmd
-# loa: loa.Rmd
+
+lot: true # list of tables true or false
+lof: true # list of figures true or false
+
+# nomenclature: nomenclature.Rmd # comment or uncomment for list of notations
+# loa: loa.Rmd # comment or uncomment for list of abbreviations
+
+# should additional latex packages and configurations be necessary, add them below
 header-includes:
 - \usepackage{subfig}
-# - \usepackage{float}
-# - \usepackage{floatrow}
-# - \floatsetup[figure]{capposition=top}
-# - \floatsetup[table]{capposition=top} 
-# - \usepackage{caption}
+
 ---
 
-```{r, echo=FALSE, warning=FALSE, message=FALSE, include= F}
+```{r setup, echo = FALSE, warning = FALSE, message = FALSE, include = F}
 
-rm(list = ls())
-gc()
+rm(list = ls()) # frees up global environment
+gc() # frees up memory
 
-knitr::opts_chunk$set(warning = FALSE, message = FALSE, echo=FALSE, 
-                      fig.width = 4.5, fig.height = 2.5, fig.align = 'center',
-                      fig.ext = 'png', dev = 'png', dpi = 600) # adjust dpi for image quality/knit speed
+knitr::opts_chunk$set(
+  warning = FALSE, 
+  message = FALSE, 
+  echo = FALSE, 
+  fig.width = 4.5, # in inches
+  fig.height = 2.5, # in inches
+  fig.align = 'center',
+  fig.ext = 'png', 
+  dev = 'png', 
+  dpi = 300) # adjust dpi for image quality/knit speed
 
 library(pacman)
-pacman::p_load(tidyverse, glue, huxtable, gridExtra, wesanderson, ggrepel) # load packages here
+pacman::p_load(tidyverse) # load packages here
 
 ```
 

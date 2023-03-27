@@ -1,3 +1,7 @@
-# Behind the Scenes
+# Detailed Results
 
 This is the example appendix.
+
+# Additional Figures
+
+This is an additional section in the appendix.

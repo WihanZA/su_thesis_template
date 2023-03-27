@@ -1,0 +1,9 @@
+\chapter{List of Abbreviations}
+
+\begin{acronym}
+
+\acro{ANN}{Artificial Neural Network}
+\acro{AUC}{Area Under a Curve}
+\acro{CNN}{Convolutional Neural Network}
+
+\end{acronym}

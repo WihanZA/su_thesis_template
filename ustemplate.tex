@@ -4,24 +4,29 @@
 \usepackage{graphicx}%........................... Graphicx loaded in usthesis
 \usepackage{color}%.............................. Color setup
 \usepackage{eso-pic}%............................ Shipout commands for watermark
-    \newcommand*{\WaterMark}[2][0.15\paperwidth]{%
+    \newcommand*{\WaterMark}[2][0.22\paperwidth]{%
         \AddToShipoutPicture*{\AtTextCenter{%
                 \parbox[t]{0pt}{\makebox[0pt][c]{%
                     \includegraphics[width=#1]{#2}}}}}}
 
-\usepackage[masters-t, $if(margin-ratio)$$margin-ratio$,$endif$]{usthesis} % option to replace masters-t with PhD 
+\usepackage[masters-t, $if(margin-ratio)$$margin-ratio$,$endif$]{usthesis} 
+% options are masters-t or PhD
+
 $if(beamerarticle)$
 \usepackage{beamerarticle} % needs to be loaded first
 $endif$
+
 $if(fontfamily)$
 \usepackage[$for(fontfamilyoptions)$$fontfamilyoptions$$sep$,$endfor$]{$fontfamily$}
 $else$
 \usepackage{lmodern}
 $endif$
+
 $if(linestretch)$
 \usepackage{setspace}
 \setstretch{$linestretch$}
 $endif$
+
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
 \usepackage{textcomp}
@@ -30,9 +35,11 @@ $endif$
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[$if(fontenc)$$fontenc$$else$T1$endif$]{fontenc}
   \usepackage[utf8]{inputenc}
+  
 $if(euro)$
   \usepackage{eurosym}
 $endif$
+
 \else % if luatex or xelatex
 $if(mathspec)$
   \ifxetex
@@ -43,22 +50,29 @@ $if(mathspec)$
 $else$
   \usepackage{unicode-math}
 $endif$
+
   \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+  
 $for(fontfamilies)$
   \newfontfamily{$fontfamilies.name$}[$fontfamilies.options$]{$fontfamilies.font$}
 $endfor$
+
 $if(euro)$
   \newcommand{\euro}{€}
 $endif$
+
 $if(mainfont)$
     \setmainfont[$for(mainfontoptions)$$mainfontoptions$$sep$,$endfor$]{$mainfont$}
 $endif$
+
 $if(sansfont)$
     \setsansfont[$for(sansfontoptions)$$sansfontoptions$$sep$,$endfor$]{$sansfont$}
 $endif$
+
 $if(monofont)$
     \setmonofont[Mapping=tex-ansi$if(monofontoptions)$,$for(monofontoptions)$$monofontoptions$$sep$,$endfor$$endif$]{$monofont$}
 $endif$
+
 $if(mathfont)$
 $if(mathspec)$
   \ifxetex
@@ -70,10 +84,12 @@ $else$
   \setmathfont[$for(mathfontoptions)$$mathfontoptions$$sep$,$endfor$]{$mathfont$}
 $endif$
 $endif$
+
 $if(CJKmainfont)$
     \usepackage{xeCJK}
     \setCJKmainfont[$for(CJKoptions)$$CJKoptions$$sep$,$endfor$]{$CJKmainfont$}
 $endif$
+
 \fi
 % use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -83,9 +99,11 @@ $endif$
 \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
 \PassOptionsToPackage{hyphens}{url} % url is loaded by hyperref
+
 $if(verbatim-in-note)$
 \usepackage{fancyvrb}
 $endif$
+
 \usepackage[unicode=true]{hyperref}
 \usepackage[capitalize]{cleveref} % delete if not working
 $if(colorlinks)$
@@ -110,19 +128,24 @@ $else$
             pdfborder={0 0 0},
 $endif$
             breaklinks=true}
+            
 \urlstyle{same}  % don't use monospace font for urls
+
 $if(verbatim-in-note)$
 \VerbatimFootnotes % allows verbatim text in footnotes
 $endif$
+
 $if(geometry)$
 \usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
 $endif$
+
 $if(lang)$
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[shorthands=off,$for(babel-otherlangs)$$babel-otherlangs$,$endfor$main=$babel-lang$]{babel}
 $if(babel-newcommands)$
   $babel-newcommands$
 $endif$
+
 \else
   \usepackage{polyglossia}
   \setmainlanguage[$polyglossia-lang.options$]{$polyglossia-lang.name$}
@@ -131,8 +154,10 @@ $for(polyglossia-otherlangs)$
 $endfor$
 \fi
 $endif$
+
 \usepackage{usnomencl}
 \usepackage{acronym}
+
 $if(natbib)$
 %\usepackage{natbib}
 %\bibliographystyle{$if(biblio-style)$$biblio-style$$else$plainnat$endif$}
@@ -145,26 +170,32 @@ $if(natbib)$
     \addto{\captionsafrikaans}{\renewcommand{\bibname}{Lys van Verwysings}}
     \addto{\captionsenglish}{\renewcommand{\bibname}{List of References}}
 $endif$
+
 $if(biblatex)$
 \usepackage[$if(biblio-style)$style=$biblio-style$,$endif$$for(biblatexoptions)$$biblatexoptions$$sep$,$endfor$]{biblatex}
 $for(bibliography)$
 \addbibresource{$bibliography$}
 $endfor$
 $endif$
+
 $if(listings)$
 \usepackage{listings}
 $endif$
+
 $if(lhs)$
 \lstnewenvironment{code}{\lstset{language=Haskell,basicstyle=\small\ttfamily}}{}
 $endif$
+
 $if(highlighting-macros)$
 $highlighting-macros$
 $endif$
+
 $if(tables)$
 \usepackage{longtable,booktabs}
 % Fix footnotes in tables (requires footnote package)
 \IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{long table}}{}
 $endif$
+
 $if(graphics)$
 \usepackage{graphicx,grffile}
 \makeatletter
@@ -176,15 +207,18 @@ $if(graphics)$
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 $endif$
+
 $if(links-as-notes)$
 % Make links footnotes instead of hotlinks:
 \renewcommand{\href}[2]{#2\footnote{\url{#1}}}
 $endif$
+
 $if(strikeout)$
 \usepackage[normalem]{ulem}
 % avoid problems with \sout in headers with hyperref:
 \pdfstringdefDisableCommands{\renewcommand{\sout}{}}
 $endif$
+
 $if(indent)$
 $else$
 \IfFileExists{parskip.sty}{%
@@ -194,14 +228,17 @@ $else$
 \setlength{\parskip}{6pt plus 2pt minus 1pt}
 }
 $endif$
+
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+  
 $if(numbersections)$
 \setcounter{secnumdepth}{$if(secnumdepth)$$secnumdepth$$else$5$endif$}
 $else$
 \setcounter{secnumdepth}{0}
 $endif$
+
 $if(subparagraph)$
 $else$
 % Redefines (sub)paragraphs to behave more like sections
@@ -214,6 +251,7 @@ $else$
 \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
 \fi
 $endif$
+
 $if(dir)$
 \ifxetex
   % load bidi as late as possible as it modifies e.g. graphicx
@@ -222,6 +260,7 @@ $if(dir)$
   $else$
   \usepackage{bidi}
   $endif$
+  
 \fi
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \TeXXeTstate=1
@@ -244,14 +283,16 @@ $endfor$
 $if(title)$
 \title{\bfseries\AorE{$titel$\\[1ex]\normalfont\small\itshape(``$title$'')}{$title$}}
 $endif$
+
 $if(subtitle)$
 \providecommand{\subtitle}[1]{}
 \subtitle{$subtitle$}
 $endif$
+
 $if(author)$
-%\author{$for(author)$$author$$sep$ \and $endfor$}
 \author{$author-short$}{$author$}
 $endif$
+
 $if(address)$
 \address{\AorE{%-- Afrikaans ----------------------------------------
         Departement van Ekonomie,\\
@@ -263,11 +304,9 @@ $if(address)$
         Private Bag X1, Matieland 7602, South Africa.
              }}
 $endif$
-% $if(institute)$
-% \providecommand{\institute}[1]{}
-% \institute{$for(institute)$$institute$$sep$ \and $endfor$}
-% $endif$
+
 \date{$date$}
+
 $if(degree)$
 \degree{\AorE{$graad-short$}{$degree-short$}}
        {\AorE{$graad$}
@@ -279,11 +318,11 @@ $if(faculty)$
 $endif$
 
 \supervisor{$supervisor$}
-%\cosupervisor{$$}
+%\cosupervisor{$cosupervisor$}
 
 \setdate{$month$}{$year$}
 
-% \SetSponsor{The financial assistance of the Graduate School of Economic and Management Sciences (GEM) towards this research is hereby acknowledged. Opinions expressed are those of the author and are not to be attributed to GEM.}
+% \SetSponsor{The financial assistance of XXXX towards this research is hereby acknowledged. Opinions expressed are those of the author and are not to be attributed to XXXX.}
 
 %\maxsecnumdepth{subsubsection}
 %\maxtocdepth{section}
@@ -293,11 +332,12 @@ $endif$
 \linespread{1.213}
 
 \begin{document}
- \frontmatter
- \WaterMark{./images/sun_logo.png}
- $if(title)$
+\frontmatter 
+\WaterMark{./images/su_logo.jpg}
+  $if(title)$
  \TitlePage
  $endif$
+ 
 
 \DeclarationPage
 
@@ -312,23 +352,26 @@ $endif$
 
 $for(include-before)$
 $include-before$
-
 $endfor$
+
 $if(toc)$
 {
 $if(colorlinks)$
 \hypersetup{linkcolor=$if(toccolor)$$toccolor$$else$black$endif$}
 $endif$
+
 \setcounter{tocdepth}{$toc-depth$}
 \tableofcontents
 \clearpage
 }
 $endif$
+
 $if(lof)$
 \setcounter{lofdepth}{2}
 \listoffigures
 \clearpage
 $endif$
+
 $if(lot)$
 \listoftables
 \clearpage

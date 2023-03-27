@@ -1,8 +1,11 @@
 \chapter{Acknowledgements}
 
-I would like to express my sincere gratitude to the following people: 
+I would like to express my gratitude to the following people: 
 
 \begin{itemize}
-  \item Prof. Willem H. Boshoff for his exhaustive feedback as supervisor.
-  \item Wihan Marais for his approachable demeanour, leading edge sense of humour, and immense generosity for providing this template.
+
+  \item Prof. M. Supervisor for their assistance as supervisor.
+  
+  \item Wihan Marais for this template.
+  
 \end{itemize}

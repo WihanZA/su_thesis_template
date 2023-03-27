@@ -1,15 +1,21 @@
+\clearpage
 \begin{abstract}[english]
-\noindent This is the first paragraph of my English abstract. You need to use \textbf{Latex syntax} in this environment. E.g. \cite{boshoff20} and Tschantz en Froeb \citeyearpar{app19}.
+
+\noindent This is the first paragraph of my English abstract. You need to use \textbf{Latex syntax} in this environment. E.g. \citep{marais2021} and \citet{marais2021}.
 
 This is the second paragraph of my English abstract.
 
 \end{abstract}
 
-<!-- Just delete everything below this point should Afrikaans not be necessary -->
+\clearpage
 
-\begin{abstract}[afrikaans] 
+\begin{abstract}[afrikaans]
+
 \noindent This is the first paragraph of my Afrikaans abstract.
 
 This is the second paragraph of my Afrikaans abstract.
 
+Delete everything between and including \verb|\begin{abstract}[afrikaans]| and \verb|\end{abstract}| to remove the Afrikaans abstract from the final document.
+
 \end{abstract}
+\clearpage
