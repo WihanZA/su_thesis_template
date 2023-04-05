@@ -4,10 +4,10 @@
 \usepackage{graphicx}%........................... Graphicx loaded in usthesis
 \usepackage{color}%.............................. Color setup
 \usepackage{eso-pic}%............................ Shipout commands for watermark
-    \newcommand*{\WaterMark}[2][0.22\paperwidth]{%
-        \AddToShipoutPicture*{\AtTextCenter{%
-                \parbox[t]{0pt}{\makebox[0pt][c]{%
-                    \includegraphics[width=#1]{#2}}}}}}
+\newcommand*{\WaterMark}[3][0.3\paperwidth]{%
+    \AddToShipoutPicture*{\AtTextCenter{%
+        \parbox[t]{0pt}{\raisebox{#3}{\makebox[0pt][c]{%
+            \includegraphics[width=#1]{#2}}}}}}}
 
 \usepackage[masters-t, $if(margin-ratio)$$margin-ratio$,$endif$]{usthesis} 
 % options are masters-t or PhD
@@ -333,10 +333,10 @@ $endif$
 
 \begin{document}
 \frontmatter 
-\WaterMark{./images/su_logo.jpg}
-  $if(title)$
- \TitlePage
- $endif$
+\WaterMark{./images/su_logo.jpg}{-2cm}
+$if(title)$
+\TitlePage
+$endif$
  
 
 \DeclarationPage
